@@ -10,7 +10,7 @@ module.exports = class EventHandler {
     readdir("./src/events/", (err, files) => {
       if (err) return console.error(err);
 
-      files.forEach((file) => {
+        for (const file of files) {
         const event = require(`../events/${file}`);
         let eventName = file.split(".")[0];
 
@@ -19,7 +19,7 @@ module.exports = class EventHandler {
         } else {
           this.client.on(eventName, event.bind(null, this.client));
         }
-      });
+      };
     });
   }
 };
