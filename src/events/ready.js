@@ -19,7 +19,7 @@ module.exports = async (client) => {
 
   const rest = new REST({
     version: "10",
-  }).setToken(process.env.TOKEN);
+});
 
   (async () => {
     try {
@@ -54,8 +54,8 @@ module.exports = async (client) => {
       if (err) console.error(err);
     }
   })();
-  client.user.setPresence({
-    activities: [{ name: `${process.env.STATUSBOT}` }],
-    status: ``,
+  client.user.setPresence({ 
+    activities: [{ name: `${client.guilds.cache.size} Servers!`, type: 3 }],
+    status: `dnd`,
   });
 };
